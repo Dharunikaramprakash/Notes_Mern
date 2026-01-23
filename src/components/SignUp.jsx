@@ -22,7 +22,7 @@ function SignUp({ onBack }) {
       return
     }
    try{
-     const response = await axios.post("http://localhost:5000/user/register",{name,email,password})
+     const response = await axios.post("https://notes-backend-1gqs.onrender.com/user/register",{name,email,password})
      console.log(response);
      
      

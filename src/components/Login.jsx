@@ -22,7 +22,7 @@ function Login({ onBack }) {
     }
 
     try{
-     const response = await axios.post("http://localhost:5000/user/login",{email,password})
+     const response = await axios.post("https://notes-backend-1gqs.onrender.com/user/login",{email,password})
      console.log(response.data.token);
      localStorage.setItem("token",JSON.stringify(response.data.token))
      login(response.data)

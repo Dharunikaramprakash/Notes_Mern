@@ -27,7 +27,7 @@ function NotesApp({ user }) {
   useEffect(() => {
         const fetchNotes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/notes/read", {
+      const res = await axios.get("https://notes-backend-1gqs.onrender.com/notes/read", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -79,7 +79,7 @@ function NotesApp({ user }) {
 
     if(editingId){
       try {
-      const res = await axios.put(`http://localhost:5000/notes/update/${editingId}`,{title,content}, {
+      const res = await axios.put(`https://notes-backend-1gqs.onrender.com/notes/update/${editingId}`,{title,content}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -92,7 +92,7 @@ function NotesApp({ user }) {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/notes/create",{title,content}, {
+      const res = await axios.post("https://notes-backend-1gqs.onrender.com/notes/create",{title,content}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -113,7 +113,7 @@ function NotesApp({ user }) {
 
   const handleDelete =async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/notes/delete/${id}`, {
+      const res = await axios.delete(`https://notes-backend-1gqs.onrender.com/notes/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
