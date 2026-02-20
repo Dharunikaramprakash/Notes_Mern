@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import '../App.css'
 import axios from 'axios'
+import { APIURL } from '../data/apiUrl.js'
 
 function NotesApp({ user }) {
   const { logout } = useAuth()
@@ -79,7 +80,7 @@ function NotesApp({ user }) {
 
     if(editingId){
       try {
-      const res = await axios.put(`https://notes-backend-1gqs.onrender.com/notes/update/${editingId}`,{title,content}, {
+      const res = await axios.put(`${APIURL}/notes/update/${editingId}`,{title,content}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -92,7 +93,7 @@ function NotesApp({ user }) {
     }
 
     try {
-      const res = await axios.post("https://notes-backend-1gqs.onrender.com/notes/create",{title,content}, {
+      const res = await axios.post(`${APIURL}/notes/create`,{title,content}, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -113,7 +114,7 @@ function NotesApp({ user }) {
 
   const handleDelete =async (id) => {
     try {
-      const res = await axios.delete(`https://notes-backend-1gqs.onrender.com/notes/delete/${id}`, {
+      const res = await axios.delete(`${APIURL}/notes/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

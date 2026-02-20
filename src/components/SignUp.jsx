@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import './Auth.css'
 import axios from 'axios'
+import { APIURL } from '../data/apiUrl.js'
 
 function SignUp({ onBack }) {
   const [name, setName] = useState('')
@@ -22,7 +23,7 @@ function SignUp({ onBack }) {
       return
     }
    try{
-     const response = await axios.post("https://notes-backend-1gqs.onrender.com/user/register",{name,email,password})
+     const response = await axios.post(`${APIURL}/user/register`,{name,email,password})
      console.log(response);
      
      
